@@ -1,0 +1,6 @@
+I'm using a virtual enviroment (.whymexEnv) 
+so, please check the libraries that I using. 
+
+Don't try to install one by one because when I 
+installed Django (pip install django -U) some
+libraries were install. 
