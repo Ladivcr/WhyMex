@@ -5,6 +5,7 @@ from django.shortcuts import render
 #from django.http import HttpResponse
 # utilities
 from datetime import datetime
+import geopandas as gpd
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
 posts = [
@@ -42,6 +43,8 @@ posts = [
 
 ]
 
+# ESto es lo que estoy viendo
 def list_posts(request): 
     """ list existing posts """
+    # return render(request, 'pagina.html', {'parametros': para usar en ese html})
     return render(request, 'index.html', {'posts': posts})

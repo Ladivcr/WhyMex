@@ -1,13 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang = 'en'>
   <head>
       <meta charset='UTF-8'
-    <title>WhyMex!</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
+      <meta name="description" content="Cuidado del medio ambiente">
+      <meta name="keywords" content=" Arboles, Ecologia, Reforestacion, Trees, Media, Social, Maps, Mexico, Latin, America">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    
+      <title>WhyMex!</title>
+      <!-- CSS only -->
+      <!-- Bootstrap -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css">
+      <!-- My own css -->
+      {% load static %}
+      <link rel="stylesheet" href="{% static 'estilos.css' %}" /> 
+      
   </head>
   <body>
+    <!-- Header con el menú principal -->
+
+    <nav class="mb-1 navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+
+      <a class="navbar-brand" href=""><strong>WhyMex!</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href=""><i class="fa fa-home" aria-hidden="true"></i>Inicio
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/registro/"><i class="fas fa-users"></i>Registrar nuevo problema</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/mapa/"><i class="fas fa-map-marked-alt"></i>Mapa de problemas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contacto/"><i class="far fa-comment-alt"></i>Contácto</a>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+    <!-- Termina header-->
+
+    <!--¿Qué es WhyMex?-->
+    <div id="container">
+	    
+	    <div id="post">
+		    <center><h1><strong>¿Qué es WhyMex?</strong></h1></center>
+		    <p style=”text-align: justify;”>En México tenemos serios problemas
+        con la biodiversidad a raíz de una pesima gestión, una regulación no 
+        transparente y una mala toma de decisiones por parte de las autoridades 
+        correspondientes. WhyMex nace como apoyo para una toma de decisiones
+        más informada respecto a la biodiversidad de México.<br>
+        <br> Como Cientificos de Datos creemos firmemente que no hay malas decisiones solo 
+        falta de información para tomar esas decisiones. Es por ello que con el apoyo de la sociedad
+        recopilaremos información necesaria sobre: 
+        <ol>
+          <li>Incendios</li>
+          <li>Sequias</li>
+          <li>Deforestación</li>
+          <li>Cambio de uso de suelo</li> 
+          <li>Vertederos realizados clandestinamente</li>
+          <li>Desechos tóxicos tirados clandestinamente</li>
+        </ol>
+        Esta información posteriormente será utilizada para tomar decisiones más inteligentes
+        y poder responder de una manera más efectiva ante los problemas ámbientales que 
+        amenazan a México y su biodiversidad.
+        </p>
+        <center><h1><strong>¿Por qué el nombre "WhyMex"?</strong></h1></center>
+        <p style="text-align: justify;">
+          Mex hace referencía a México, tomando esto y haciendo la traducción al español
+          es "¿Por qué México?" Que es una pregunta que hace referencía al 
+          cuerpo principal de muchas preguntas que se pueden escuchar en las pláticas de 
+          los transeuntes mexicanos: ¿<strong>por qué México</strong> no protege a la mujer?
+          ¿<strong>por qué México</strong> no regula a los aguacateros?
+          ¿<strong>por qué México</strong> tiene mucha biodiversidad pero pesima gestión y regulación? Etc.
+        </p>
+		  </div>
+	    <div id="footer">Hecho con mucho amor y django</div>
+	  </div>
+    <!-- TERMINA ¿Qué es WhyMex?-->
+
+    <!--
     <br><br>
     <div class="container">
         <div class="row">
@@ -26,5 +107,6 @@
             {% endfor %}
         </div>
     </div>
+    -->
   </body>	
 </html>	
