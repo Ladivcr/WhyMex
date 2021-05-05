@@ -5,7 +5,8 @@ from django.shortcuts import render
 #from django.http import HttpResponse
 # utilities
 from datetime import datetime
-import geopandas as gpd
+
+#import geopandas as gpd
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
 posts = [
@@ -44,7 +45,24 @@ posts = [
 ]
 
 # ESto es lo que estoy viendo
-def list_posts(request): 
-    """ list existing posts """
+def main_menu(request): 
+    """[Provide the main page]
+    Args: 
+        request
+    """
     # return render(request, 'pagina.html', {'parametros': para usar en ese html})
     return render(request, 'index.html', {'posts': posts})
+
+def register_problem(request): 
+    """[Provide the page where the user can register new problems]
+    Args:
+        request
+    """
+    return render(request, 'registro.html')
+
+def map(request): 
+    """[Provide the page where the user can watch the different problems]
+    Args:
+        request
+    """
+    return render(request, 'mapa.html')

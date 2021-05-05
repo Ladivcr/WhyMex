@@ -21,5 +21,7 @@ from posts import views as post_views
 
 urlpatterns = [
     path('hello-world/', local_views.hello_world),
-    path('inicio/', post_views.list_posts)
+    path('inicio/', post_views.main_menu),
+    path('registro/', post_views.register_problem),
+    path('mapa/', post_views.map),
 ]
