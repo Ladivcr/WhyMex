@@ -6,7 +6,6 @@ from django.shortcuts import render
 # utilities
 from datetime import datetime
 
-#import geopandas as gpd
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
 posts = [
@@ -30,18 +29,6 @@ posts = [
         'photo': 'https://picsum.photos/200/200/?image=903',
          
     },
-        {
-        'title': 'Nuevo auditorio',
-        'user': {
-            'name': 'Thespianartist',
-            'picture': 'https://picsum.photos/60/60/?image=883'
-        },
-        'timestamp': now,
-        'photo': 'https://picsum.photos/200/200/?image=1076',
-         
-    },
-    
-
 ]
 
 # ESto es lo que estoy viendo
@@ -66,3 +53,10 @@ def map(request):
         request
     """
     return render(request, 'mapa.html')
+
+def contact(request): 
+    """[Provide the page where the user can contact to me]
+    Args:
+        request
+    """
+    return render(request, 'contacto.html')
