@@ -1,8 +1,10 @@
+
+
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <div id="map">
-  {% load static %}
-  <script src="{% static 'map.js' %}"></script>
-  </div>
+    <div id="container">
+        {% load static %}
+        {{ my_map|safe }}
+    </div>
 {% endblock %}

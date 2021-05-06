@@ -3,4 +3,10 @@ so, please check the libraries that I using.
 
 Don't try to install one by one because when I 
 installed Django (pip install django -U) some
-libraries were install. 
+libraries were install.
+
+Some commands that I did before to start to work are: 
+    pip install django -U 
+    pip install folium
+
+NOTE: Create your own virtual enviroment 

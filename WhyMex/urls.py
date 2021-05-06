@@ -18,16 +18,12 @@ from django.urls import path
 from WhyMex import views as local_views
 from posts import views as post_views
 
-# ? CREO QUE ESTE IMPORT NO ES NECESARIO
-from .views import MarkersMapView
 #urlpatterns = [path('admin/', admin.site.urls),]
 
 urlpatterns = [
     path('hello-world/', local_views.hello_world),
     path('inicio/', post_views.main_menu),
     path('registro/', post_views.register_problem),
-    path('mapa/', post_views.map),
+    path('mapa/', post_views.show_map),
     path('contacto/', post_views.contact),
-    # ? CREO QUE map/ NO ES NECESARIO
-    path("map/", MarkersMapView.as_view()),
 ]
