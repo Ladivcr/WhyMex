@@ -68,19 +68,49 @@ def show_map(request):
     # * Añadir puntos al mapa
     #marcador1.add_to(maping)
     # * creamos el marcador
-    Morelia = folium.Marker(location=(19.702860, -101.190091), icon=folium.Icon(color="red", icon='info-sign')) #! Morelia
-    Patzcuaro = folium.Marker(location=(19.513755, -101.608338), icon=folium.Icon(color="blue", icon='cloud')) #! Pátzcuaro
+    fire = folium.Marker(location=(19.702860, -101.190091), icon=folium.Icon(color="darkred", icon='fire-extinguisher', prefix='fa')) #! Morelia
+    sequia = folium.Marker(location=(19.513755, -101.708338), icon=folium.Icon(color="darkblue", icon='fa-tint', prefix='fa')) #! Pátzcuaro
+    deforestacion = folium.Marker(location=(19.513755, -107.608338), icon=folium.Icon(color="green", icon='fa-tree', prefix='fa')) #! Pátzcuaro
+    pesca = folium.Marker(location=(19.513755, -103.608338), icon=folium.Icon(color="darkblue", icon='fa-anchor', prefix='fa')) #! Pátzcuaro
+    estancamiento = folium.Marker(location=(19.513755, -106.608338), icon=folium.Icon(color="blue", icon='fa-chain-broken', prefix='fa')) #! Pátzcuaro
+    cambioSuelo = folium.Marker(location=(19.513755, -104.608338), icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa')) #! Pátzcuaro
+    vertedero = folium.Marker(location=(19.513755, -111.608338), icon=folium.Icon(color="gray", icon='fa-trash', prefix='fa')) #! Pátzcuaro
+    toxico = folium.Marker(location=(19.513755, -108.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa')) #! Pátzcuaro
+    biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon='fa-warning', prefix='fa')) #! Pátzcuaro
     
     # * Creamos grupos para los marcadores
-    grp_Mor = folium.FeatureGroup(name='Pertenece a Morelia')
-    grp_Pat = folium.FeatureGroup(name='Pertenece a Pátzcuaro')
+    grp_incendio = folium.FeatureGroup(name='Incendio')
+    grp_sequia = folium.FeatureGroup(name="Sequia")
+    grp_deforestacion = folium.FeatureGroup(name="Deforestación")
+    
+    grp_pesca_ilegal = folium.FeatureGroup(name="Pesca ilegal")
+    grp_estancamiento_agua = folium.FeatureGroup(name="Estancamiento de agua")
+    grp_cambio_de_suelo = folium.FeatureGroup(name="Cambio de uso de suelo")
+    grp_vertederos_clandestinos = folium.FeatureGroup(name="Vertederos clandestinos")
+    grp_desechos_toxicos = folium.FeatureGroup(name="Desechos tóxicos tirados clandestinamente")
+    grp_desechos_biologicos = folium.FeatureGroup(name="Desechos biológicos tirados clandestinamente")
+    
     
     # Añadimos los marcadores AL GRUPO AL QUE CORRESPONDAN (NO AL MAPA)
-    Morelia.add_to(grp_Mor)
-    Patzcuaro.add_to(grp_Pat)
+    fire.add_to(grp_incendio)
+    sequia.add_to(grp_sequia)
+    deforestacion.add_to(grp_deforestacion)
+    pesca.add_to(grp_pesca_ilegal)
+    estancamiento.add_to(grp_estancamiento_agua)
+    cambioSuelo.add_to(grp_cambio_de_suelo)
+    vertedero.add_to(grp_vertederos_clandestinos)
+    toxico.add_to(grp_desechos_toxicos)
+    biologico.add_to(grp_desechos_biologicos)
     # Y ahora añadimos los grupos al mapa
-    grp_Mor.add_to(maping)
-    grp_Pat.add_to(maping)
+    grp_incendio.add_to(maping)
+    grp_sequia.add_to(maping)
+    grp_deforestacion.add_to(maping)
+    grp_pesca_ilegal.add_to(maping)
+    grp_estancamiento_agua.add_to(maping)
+    grp_cambio_de_suelo.add_to(maping)
+    grp_vertederos_clandestinos.add_to(maping)
+    grp_desechos_toxicos.add_to(maping)
+    grp_desechos_biologicos.add_to(maping)
     # Y añadimos, además, el control de capas
     folium.LayerControl().add_to(maping)
 
@@ -95,3 +125,13 @@ def contact(request):
         request
     """
     return render(request, 'contacto.html')
+
+
+# ! Página para ayudar al registro de datos
+def help(request): 
+    """[Provide the page where the user can contact to me]
+    Args:
+        request
+    """
+    return render(request, 'ayuda.html')
+
