@@ -6,6 +6,7 @@ from django.shortcuts import render
 # utilities
 from datetime import datetime
 import folium 
+import branca
 
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
@@ -60,9 +61,6 @@ def show_map(request):
     # * where the map start: Mexico
     maping = folium.Map(location=(22.9998589, -100.9994856), zoom_start=5)
 
-    #test = folium.Html('<b>Hello world</b>', script=True)
-    #popup = folium.Popup(test, max_width=2048)
-    #folium.RegularPolygonMarker(location=[51.5, -0.25], popup=popup).add_to(maping)
     
     
     # * Añadir puntos al mapa
@@ -78,6 +76,11 @@ def show_map(request):
     toxico = folium.Marker(location=(19.513755, -108.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa')) #! Pátzcuaro
     biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon='fa-warning', prefix='fa')) #! Pátzcuaro
     
+    # *La información solo será la posición del marcador
+    # * os dejo a vosotros la innovación
+    html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de importancia: <strong>Extremadamente alto</strong></p>"
+    iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+    ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon='fa-tree', prefix='fa'))
     # * Creamos grupos para los marcadores
     grp_incendio = folium.FeatureGroup(name='Incendio')
     grp_sequia = folium.FeatureGroup(name="Sequia")
@@ -91,6 +94,7 @@ def show_map(request):
     grp_desechos_biologicos = folium.FeatureGroup(name="Desechos biológicos tirados clandestinamente")
     
     
+    ejemplo.add_to(grp_deforestacion)
     # Añadimos los marcadores AL GRUPO AL QUE CORRESPONDAN (NO AL MAPA)
     fire.add_to(grp_incendio)
     sequia.add_to(grp_sequia)
