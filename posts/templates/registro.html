@@ -1,19 +1,24 @@
 {% extends "base_generic.html" %}
+
+{% block head_content %}
+    <title>Registro</title>    
+{% endblock %}  
 {% block content %}
         <div id="container">
             <center><h1>Por favor introduce la información necesaria sobre el problema</h1></center>
-            <form class="row g-3">
+            <form method="POST" action = "{% url 'registrar_problema' %}" class="row g-3">
+                {% csrf_token %}
                 <div class="col-md-6">
                     <label for="inputLatitud" class="form-label">Latitud</label>
-                    <input type="number" step="0.01" class="form-control" id="myLatitud" required>
+                    <input type="number" step="0.01" class="form-control" id="myLatitud" placeholder="Latitud" name="latitud" required>
                 </div>
                 <div class="col-md-6">
                     <label for="inputLongitud" class="form-label">Longitud</label>
-                    <input type="number" step="0.01" class="form-control" id="myLongitud" required>
+                    <input type="number" step="0.01" class="form-control" id="myLongitud"  placeholder="Longitud" name="longitud" required>
                 </div>
                 <div class="col-12">
                     <label for="inputProblema" class="form-label">Tipo de problema</label>
-                    <select id="myProblema" class="form-select" required>
+                    <select id="myProblema" class="form-select" name="problema" required>
                         <option disabled="" selected="">Seleccionar problema</option>
                         <option value="Incendio">Incendio</option>
                         <option value="Sequia">Sequia</option>
@@ -28,9 +33,9 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="inputImportancia" class="form-label">Nivel de importancia considerado</label>
-                    <select id="myImportancia" class="form-select" required>
-                        <option disabled="" selected="">Seleccionar nivel de importancia</option>
+                    <label for="inputImportancia" class="form-label">Nivel de prioridad</label>
+                    <select id="myImportancia" class="form-select" name="prioridad" required>
+                        <option disabled="" selected="">Seleccionar nivel de prioridad</option>
                         <option value="Extremadamente_Alta">Extremadamente Alta</option>
                         <option value="Alta">Alta</option>
                         <option value="Media">Media</option>
@@ -39,11 +44,11 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputCiudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="myCiudad">
+                    <input type="text" class="form-control" id="myCiudad" placeholder="Ciudad donde se encuentra el problema" name="ciudad">
                     </div>
                 <div class="col-md-4">
                     <label for="inputEstado" class="form-label">Estado</label>
-                    <select id="myEstado" class="form-select" required>
+                    <select id="myEstado" class="form-select" name="estado" required>
                         <option disabled="" selected="">Seleccionar estado</option>
                         <option value="MEX">Mexico</option>
                         <option value="AGS">Aguascalientes</option>
@@ -80,7 +85,7 @@
                 </div>
                 <div class="col-md-2">
                     <label for="inputCP" class="form-label">Código Postal</label>
-                    <input type="text" class="form-control" id="myCP">
+                    <input type="text" class="form-control" id="myCP" placeholder="Código Postal" name="CP">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Registrar problema</button>

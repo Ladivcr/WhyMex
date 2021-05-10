@@ -1,11 +1,11 @@
 """ posts views"""
 
 # Django
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #from django.http import HttpResponse
 # utilities
 from datetime import datetime
-import folium 
+import folium
 import branca
 
 
@@ -19,7 +19,7 @@ posts = [
         },
         'timestamp': now,
         'photo': 'https://picsum.photos/200/200/?image=1036',
-         
+
     },
     {
         'title': 'Via lactea',
@@ -29,40 +29,56 @@ posts = [
         },
         'timestamp': now,
         'photo': 'https://picsum.photos/200/200/?image=903',
-         
+
     },
 ]
 
 # ESto es lo que estoy viendo
 # ! Página principal
-def main_menu(request): 
+def main_menu(request):
     """[Provide the main page]
-    Args: 
+    Args:
         request
     """
     # return render(request, 'pagina.html', {'parametros': para usar en ese html})
     return render(request, 'index.html', {'posts': posts})
 
 # ! Página para registrar problemas
-def register_problem(request): 
+def register_problem(request):
     """[Provide the page where the user can register new problems]
     Args:
         request
     """
+    #import pdb; pdb.set_trace()
+    if request.method == 'POST': 
+        latitud = request.POST['latitud']
+        longitud = request.POST['longitud']
+        problema = request.POST['problema']
+        prioridad = request.POST['prioridad']
+        ciudad = request.POST['ciudad']
+        estado = request.POST['estado']
+        codigo_postal = request.POST['CP']
+
+        print(latitud, longitud, problema, prioridad, ciudad, estado, codigo_postal)
+        # si ya se registraron en la bd
+        return redirect('mostrar_mapa')
+
+
+    
     return render(request, 'registro.html')
 
 # ! Página para ver los problemas en un mapa
-def show_map(request): 
+def show_map(request):
     """[Provide the page where the user can watch the different problems]
     Args:
         request
-    """ 
+    """
     #creation of map comes here + business logic
     # * where the map start: Mexico
     maping = folium.Map(location=(22.9998589, -100.9994856), zoom_start=5)
 
-    
-    
+
+
     # * Añadir puntos al mapa
     #marcador1.add_to(maping)
     # * creamos el marcador
@@ -75,7 +91,7 @@ def show_map(request):
     vertedero = folium.Marker(location=(19.513755, -111.608338), icon=folium.Icon(color="gray", icon='fa-trash', prefix='fa')) #! Pátzcuaro
     toxico = folium.Marker(location=(19.513755, -108.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa')) #! Pátzcuaro
     biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon='fa-warning', prefix='fa')) #! Pátzcuaro
-    
+
     # *La información solo será la posición del marcador
     # * os dejo a vosotros la innovación
     html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de importancia: <strong>Extremadamente alto</strong></p>"
@@ -85,15 +101,15 @@ def show_map(request):
     grp_incendio = folium.FeatureGroup(name='Incendio')
     grp_sequia = folium.FeatureGroup(name="Sequia")
     grp_deforestacion = folium.FeatureGroup(name="Deforestación")
-    
+
     grp_pesca_ilegal = folium.FeatureGroup(name="Pesca ilegal")
     grp_estancamiento_agua = folium.FeatureGroup(name="Estancamiento de agua")
     grp_cambio_de_suelo = folium.FeatureGroup(name="Cambio de uso de suelo")
     grp_vertederos_clandestinos = folium.FeatureGroup(name="Vertederos clandestinos")
     grp_desechos_toxicos = folium.FeatureGroup(name="Desechos tóxicos tirados clandestinamente")
     grp_desechos_biologicos = folium.FeatureGroup(name="Desechos biológicos tirados clandestinamente")
-    
-    
+
+
     ejemplo.add_to(grp_deforestacion)
     # Añadimos los marcadores AL GRUPO AL QUE CORRESPONDAN (NO AL MAPA)
     fire.add_to(grp_incendio)
@@ -123,7 +139,7 @@ def show_map(request):
     return render(request, 'mapa.html', context)
 
 # ! Página para contactar con el proyecto
-def contact(request): 
+def contact(request):
     """[Provide the page where the user can contact to me]
     Args:
         request
@@ -132,10 +148,9 @@ def contact(request):
 
 
 # ! Página para ayudar al registro de datos
-def help(request): 
+def help(request):
     """[Provide the page where the user can contact to me]
     Args:
         request
     """
     return render(request, 'ayuda.html')
-
