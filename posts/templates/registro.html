@@ -4,21 +4,27 @@
     <title>Registro</title>    
 {% endblock %}  
 {% block content %}
+        {% if error %}
+            <center><p style="color: red;">{{error}}</p></center>
+        {% endif %}
         <div id="container">
             <center><h1>Por favor introduce la información necesaria sobre el problema</h1></center>
             <form method="POST" action = "{% url 'registrar_problema' %}" class="row g-3">
                 {% csrf_token %}
                 <div class="col-md-6">
                     <label for="inputLatitud" class="form-label">Latitud</label>
-                    <input type="number" step="0.01" class="form-control" id="myLatitud" placeholder="Latitud" name="latitud" required>
+                    <input type="number" step="0.01" class="form-control" id="myLatitud"
+                    placeholder="Latitud" name="latitud" required>
                 </div>
                 <div class="col-md-6">
                     <label for="inputLongitud" class="form-label">Longitud</label>
-                    <input type="number" step="0.01" class="form-control" id="myLongitud"  placeholder="Longitud" name="longitud" required>
+                    <input type="number" step="0.01" class="form-control" id="myLongitud"
+                    placeholder="Longitud" name="longitud" required>
                 </div>
                 <div class="col-12">
                     <label for="inputProblema" class="form-label">Tipo de problema</label>
                     <select id="myProblema" class="form-select" name="problema" required>
+                        <!-- En la base de datos esto será almacenado como varchar -->
                         <option disabled="" selected="">Seleccionar problema</option>
                         <option value="Incendio">Incendio</option>
                         <option value="Sequia">Sequia</option>
@@ -36,15 +42,18 @@
                     <label for="inputImportancia" class="form-label">Nivel de prioridad</label>
                     <select id="myImportancia" class="form-select" name="prioridad" required>
                         <option disabled="" selected="">Seleccionar nivel de prioridad</option>
-                        <option value="Extremadamente_Alta">Extremadamente Alta</option>
+                        <option value="Extremadamente_alta">Extremadamente Alta</option>
                         <option value="Alta">Alta</option>
                         <option value="Media">Media</option>
                         <option value="Baja">Baja</option>
+                        <option value="Muy_baja">Muy baja</option>
                     </select>
                 </div>
                 <div class="col-md-6">
                     <label for="inputCiudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="myCiudad" placeholder="Ciudad donde se encuentra el problema" name="ciudad">
+                    <input type="text" class="form-control" id="myCiudad"
+                    placeholder="Ciudad donde se encuentra el problema" name="ciudad"
+                    title="Si el nombre excede los 50 carácteres, introduce el nombre por el que se conoce localmente la ciudad">
                     </div>
                 <div class="col-md-4">
                     <label for="inputEstado" class="form-label">Estado</label>
@@ -86,6 +95,11 @@
                 <div class="col-md-2">
                     <label for="inputCP" class="form-label">Código Postal</label>
                     <input type="text" class="form-control" id="myCP" placeholder="Código Postal" name="CP">
+                </div>
+                <div class="col-12">
+                    <label for="inputInformation" class="form-label">Información adicional</label>
+                    <input type="text" class="form-control" id="myInformation"
+                    placeholder="¿Información adicional? Introducela aquí" name="about">
                 </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary">Registrar problema</button>

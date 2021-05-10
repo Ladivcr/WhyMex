@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 import folium
 import branca
-
+from posts.models import NewProblem
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
 posts = [
@@ -51,15 +51,38 @@ def register_problem(request):
     """
     #import pdb; pdb.set_trace()
     if request.method == 'POST': 
-        latitud = request.POST['latitud']
-        longitud = request.POST['longitud']
-        problema = request.POST['problema']
-        prioridad = request.POST['prioridad']
-        ciudad = request.POST['ciudad']
-        estado = request.POST['estado']
-        codigo_postal = request.POST['CP']
+        Latitud = request.POST['latitud'] # * No vacio
+        Longitud = request.POST['longitud'] # * No vacio
+        Problema = request.POST['problema'] # * No vacio
+        Prioridad = request.POST['prioridad'] # * No vacio
+        Estado = request.POST['estado'] # * No vacio
+        try:
+            Ciudad = request.POST['ciudad'] # ! Si vacio
+        except: Ciudad = "Null"
+        try:
+            CP = request.POST['CP'] # ! Si vacio
+        except: CP = "Null"
+        try:
+            Informacion = request.POST['about'] # ! Si vacio
+        except: Informacion = "Null"
 
-        print(latitud, longitud, problema, prioridad, ciudad, estado, codigo_postal)
+        print("Datos recibidos:")
+        print(Latitud, Longitud, Problema, Prioridad, Ciudad, Estado, CP, Informacion)
+        
+        try:
+            new_problem = NewProblem(latitud=Latitud, longitud=Longitud, tipo_problema=Problema,
+            nivel_prioridad = Prioridad, ciudad=Ciudad, estado=Estado, codigo_postal=CP,
+            informacion_extra=Informacion)
+            print(new_problem)
+
+            new_problem.save()
+
+        
+        except:
+            return render(request, 'registro.html',
+            {'error': 'No hemos podido registrar el problema\nIntenta de nuevo'})
+        
+        #print(latitud, longitud, problema, prioridad, ciudad, estado, codigo_postal, mas_informacion)
         # si ya se registraron en la bd
         return redirect('mostrar_mapa')
 
@@ -82,21 +105,21 @@ def show_map(request):
     # * Añadir puntos al mapa
     #marcador1.add_to(maping)
     # * creamos el marcador
-    fire = folium.Marker(location=(19.702860, -101.190091), icon=folium.Icon(color="darkred", icon='fire-extinguisher', prefix='fa')) #! Morelia
-    sequia = folium.Marker(location=(19.513755, -101.708338), icon=folium.Icon(color="darkblue", icon='fa-tint', prefix='fa')) #! Pátzcuaro
-    deforestacion = folium.Marker(location=(19.513755, -107.608338), icon=folium.Icon(color="green", icon='fa-tree', prefix='fa')) #! Pátzcuaro
-    pesca = folium.Marker(location=(19.513755, -103.608338), icon=folium.Icon(color="darkblue", icon='fa-anchor', prefix='fa')) #! Pátzcuaro
-    estancamiento = folium.Marker(location=(19.513755, -106.608338), icon=folium.Icon(color="blue", icon='fa-chain-broken', prefix='fa')) #! Pátzcuaro
+    fire = folium.Marker(location=(19.702860, -101.190091), icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa')) #! Morelia
+    sequia = folium.Marker(location=(19.513755, -101.708338), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa')) #! Pátzcuaro
+    deforestacion = folium.Marker(location=(19.513755, -107.608338), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa')) #! Pátzcuaro
+    pesca = folium.Marker(location=(19.513755, -103.608338), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa')) #! Pátzcuaro
+    estancamiento = folium.Marker(location=(19.513755, -106.608338), icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa')) #! Pátzcuaro
     cambioSuelo = folium.Marker(location=(19.513755, -104.608338), icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa')) #! Pátzcuaro
-    vertedero = folium.Marker(location=(19.513755, -111.608338), icon=folium.Icon(color="gray", icon='fa-trash', prefix='fa')) #! Pátzcuaro
+    vertedero = folium.Marker(location=(19.513755, -111.608338), icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa')) #! Pátzcuaro
     toxico = folium.Marker(location=(19.513755, -108.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa')) #! Pátzcuaro
-    biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon='fa-warning', prefix='fa')) #! Pátzcuaro
+    biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa')) #! Pátzcuaro
 
     # *La información solo será la posición del marcador
     # * os dejo a vosotros la innovación
     html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de importancia: <strong>Extremadamente alto</strong></p>"
     iframe1 = branca.element.IFrame(html=html, width=256, height=128)
-    ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon='fa-tree', prefix='fa'))
+    ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
     # * Creamos grupos para los marcadores
     grp_incendio = folium.FeatureGroup(name='Incendio')
     grp_sequia = folium.FeatureGroup(name="Sequia")
