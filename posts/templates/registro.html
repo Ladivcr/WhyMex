@@ -4,11 +4,18 @@
     <title>Registro</title>    
 {% endblock %}  
 {% block content %}
-        {% if error %}
-            <center><p style="color: red;">{{error}}</p></center>
-        {% endif %}
+        
         <div id="container">
             <center><h1>Por favor introduce la información necesaria sobre el problema</h1></center>
+            <!-- Mensajes para avisar si los datos se pudieron o no registrar-->
+            {% if error %}
+                <center><p style="color: red;"><strong>{{error}}</strong></p></center>
+            {% endif %}
+
+            {% if confirmation %}
+                <center><p style="color: green;"><strong>{{confirmation}}</strong></p></center>
+            {% endif %}
+            <!-- TERMINAN MENSAJES -->
             <form method="POST" action = "{% url 'registrar_problema' %}" class="row g-3">
                 {% csrf_token %}
                 <div class="col-md-6">
@@ -28,7 +35,7 @@
                         <option disabled="" selected="">Seleccionar problema</option>
                         <option value="Incendio">Incendio</option>
                         <option value="Sequia">Sequia</option>
-                        <option value="Deforestación">Deforestación</option>
+                        <option value="Deforestacion">Deforestación</option>
                         <!-- <option value="Deslaves">Deslaves</option> -->
                         <option value="Pesca_ilegal">Pesca ilegal</option>
                         <option value="Estancamiento_de_agua">Estancamiento de agua</option>
