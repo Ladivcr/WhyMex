@@ -21,6 +21,7 @@ from posts import views as post_views
 #urlpatterns = [path('admin/', admin.site.urls),]
 
 urlpatterns = [
+    path('', post_views.main_menu, name="inicio"),
     path('inicio/', post_views.main_menu, name="inicio"),
     path('registro/', post_views.register_problem, name='registrar_problema'),
     path('mapa/', post_views.show_map, name='mostrar_mapa'),
