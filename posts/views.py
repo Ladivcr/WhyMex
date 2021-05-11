@@ -128,12 +128,12 @@ def show_map(request):
     #biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa')) #! Pátzcuaro
 
     # * Hacemos un frame para el marcador
-    html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de prioridad: <strong>Extremadamente alto</strong></p>"
-    iframe1 = branca.element.IFrame(html=html, width=256, height=128)
-    ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
+    #html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de prioridad: <strong>Extremadamente alto</strong></p>"
+    #iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+    #ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
     
     
-    ############ ! Creamos los objetos pero a partir de la filtración en la BD
+    ############ ! Creamos los objetos a partir de la filtración en la BD
     P_Incendio = NewProblem.objects.filter(tipo_problema='Incendio')
     P_Sequia = NewProblem.objects.filter(tipo_problema='Sequia')
     P_Deforestacion = NewProblem.objects.filter(tipo_problema='Deforestacion')
@@ -235,9 +235,9 @@ def show_map(request):
     
 
 
-    ejemplo.add_to(grp_deforestacion)
+    #ejemplo.add_to(grp_deforestacion)
     
-    # Y ahora añadimos los grupos al mapa
+    # * Y ahora añadimos los grupos al mapa
     grp_incendio.add_to(maping)
     grp_sequia.add_to(maping)
     grp_deforestacion.add_to(maping)
