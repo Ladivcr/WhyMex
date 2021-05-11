@@ -9,11 +9,11 @@
             <center><h1>Por favor introduce la información necesaria sobre el problema</h1></center>
             <!-- Mensajes para avisar si los datos se pudieron o no registrar-->
             {% if error %}
-                <center><p style="color: red;" class="alert alert-danger"><strong>{{error}}</strong></p></center>
+            <center><p style="color: red;"><strong>{{error}}</strong></p></center>
             {% endif %}
 
             {% if confirmation %}
-                <center><p style="color: green;" class="alert alert-succes"><strong>{{confirmation}}</strong></p></center>
+            <center><p style="color: green;"><strong>{{confirmation}}</strong></p></center>
             {% endif %}
             <!-- TERMINAN MENSAJES -->
             <form method="POST" action = "{% url 'registrar_problema' %}" class="row g-3">
@@ -40,7 +40,7 @@
                         <option value="Pesca_ilegal">Pesca ilegal</option>
                         <option value="Estancamiento_de_agua">Estancamiento de agua</option>
                         <option value="Cambio_de_suelo">Cambio de uso de suelo</option>
-                        <option value="Vertedero_clandestino">Vertederos realizados clandestinamente</option>
+                        <option value="Vertedero_clandestino">Vertedero realizado clandestinamente</option>
                         <option value="Desechos_toxicos">Desechos tóxicos tirados clandestinamente</option>
                         <option value="Desechos_biologicos">Desechos biológicos tirados clandestinamente</option>
                     </select>
