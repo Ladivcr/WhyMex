@@ -1,0 +1,1 @@
+web: gunicorn WhyMex.wsgi --log-file -

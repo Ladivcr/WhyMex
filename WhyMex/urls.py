@@ -20,6 +20,9 @@ from posts import views as post_views
 
 #urlpatterns = [path('admin/', admin.site.urls),]
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', post_views.main_menu, name="inicio"),
     path('inicio/', post_views.main_menu, name="inicio"),
@@ -27,4 +30,4 @@ urlpatterns = [
     path('mapa/', post_views.show_map, name='mostrar_mapa'),
     path('contacto/', post_views.contact, name='contacto'),
     path('dudas/', post_views.help, name='ayuda'),
-] #+ static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
