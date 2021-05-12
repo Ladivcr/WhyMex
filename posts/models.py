@@ -30,6 +30,7 @@ class NewProblem(models.Model):
     estado = models.CharField(max_length = 3, blank=False) # no puede quedar vacio
     codigo_postal = models.CharField(max_length = 5, null=True)
     informacion_extra = models.TextField(max_length = 256, null=True)
+    created = models.DateField(auto_now_add=True)
     
     def __str__(self):
         return f"Longitud: {self.longitud} Latitud: {self.latitud}\
