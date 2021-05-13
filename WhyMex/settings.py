@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-cd3mb9-1+l7vl25$2ox4*s=9fzp0*wr80q3y6!q2xmj1id0x91
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -88,13 +88,26 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 #    }
 # }
 import dj_database_url
-from decouple import config
+#from decouple import config
 
-DATABASES ={
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+#DATABASES ={
+#    'default': dj_database_url.config(
+#        default=config('DATABASE_URL')
+#    )
+#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangogirls',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
