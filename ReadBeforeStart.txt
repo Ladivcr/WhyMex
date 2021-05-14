@@ -10,3 +10,16 @@ Some commands that I did before to start to work are:
     pip install folium
 
 NOTE: Create your own virtual enviroment 
+
+
+When I try to put the site online 
+I did: 
+    pip install pymysql
+to use as my database mysql
+
+after I put in __init__.py 
+    import pymysql
+    pymysql.install_as_MySQLdb()
+
+I follow this: https://medium.com/@a01207543/django-conecta-tu-proyecto-con-la-base-de-datos-mysql-2d329c73192a
+And this to display the site: https://www.geeksforgeeks.org/how-to-deploy-django-project-on-pythonanywhere/
