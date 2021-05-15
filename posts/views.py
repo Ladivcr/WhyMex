@@ -10,31 +10,7 @@ import branca
 from posts.models import NewProblem
 import json
 
-now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
-posts = [
-    {
-        'title': 'Mont Blac',
-        'user': {
-            'name': 'Yesica Cortes',
-            'picture': 'https://picsum.photos/60/60/?image=1027'
-        },
-        'timestamp': now,
-        'photo': 'https://picsum.photos/200/200/?image=1036',
 
-    },
-    {
-        'title': 'Via lactea',
-        'user': {
-            'name': 'C. vander',
-            'picture': 'https://picsum.photos/60/60/?image=1005'
-        },
-        'timestamp': now,
-        'photo': 'https://picsum.photos/200/200/?image=903',
-
-    },
-]
-
-# ESto es lo que estoy viendo
 # ! Página principal
 def main_menu(request):
     """[Provide the main page]
