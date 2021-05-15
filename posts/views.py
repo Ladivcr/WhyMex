@@ -2,12 +2,13 @@
 
 # Django
 from django.shortcuts import render, redirect
-#from django.http import HttpResponse
+from django.http import HttpResponse
 # utilities
 from datetime import datetime
 import folium
 import branca
 from posts.models import NewProblem
+import json
 
 now = datetime.now().strftime('%b %dth %Y - %H:%M hrs')
 posts = [
@@ -41,7 +42,7 @@ def main_menu(request):
         request
     """
     # return render(request, 'pagina.html', {'parametros': para usar en ese html})
-    return render(request, 'index.html', {'posts': posts})
+    return render(request, 'index.html')
 
 # ! Página para registrar problemas
 def register_problem(request):
@@ -288,3 +289,22 @@ def help(request):
         request
     """
     return render(request, 'ayuda.html')
+
+def MyAPI(request):
+    """ Where we can show the databases"""
+    mydata = NewProblem.objects.all()
+    data = {}
+    idr = 1
+    for element in mydata:
+        registro = { 'Latitud': element.latitud, 'Longitud': element.longitud,
+        'Tipo De Problema': element.tipo_problema, 'Prioridad': element.nivel_prioridad,
+        'Ciudad': element.ciudad, 'Estado': element.estado, 
+        'CP': element.codigo_postal, 'Información Extra': element.informacion_extra,
+        'Fecha De Creación': str(element.created)}
+        data[idr] = registro
+
+        idr += 1
+    
+    return HttpResponse(json.dumps(data, ensure_ascii=False).encode('utf8'), content_type='application/json')
+
+
