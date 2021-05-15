@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+import json 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,14 +76,26 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 #    }
 #}
 
+# Cargamos las credenciales
+with oepn('credentials.json') as file: 
+    credentials = json.load(file)
+
+# Seleccionamos las credenciales
+engine = credentials['credentials'][0]['engine']
+name = credentials['credentials'][0]['name']
+user = credentials['credentials'][0]['user']
+password = credentials['credentials'][0]['password']
+host = credentials['credentials'][0]['host']
+port = credentials['credentials'][0]['port']
+
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'WhyMex$wmproblems',
-            'USER': 'WhyMex',
-            'PASSWORD': '3JJeRd7DvE9vLci',
-            'HOST': 'WhyMex.mysql.pythonanywhere-services.com',
-            'PORT': '3306',
+            'ENGINE': engine, #'django.db.backends.mysql',
+            'NAME': name, #'WhyMex$wmproblems',
+            'USER': user, #'WhyMex',
+            'PASSWORD': password, #'3JJeRd7DvE9vLci',
+            'HOST': host, #'WhyMex.mysql.pythonanywhere-services.com',
+            'PORT': port, #'3306',
         }
     }
 

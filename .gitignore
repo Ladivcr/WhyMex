@@ -2,3 +2,4 @@
 WhyMex/__pycache__/
 posts/__pycache__/
 local_settings.py
+credentials.json
