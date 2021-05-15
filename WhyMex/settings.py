@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,10 +81,20 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Cargamos las credenciales
+with open('credentials.json') as file:
+    credentials = json.load(file)
+
+# Seleccionamos las credenciales
+engine = credentials["credentials"][0]["engine"]
+name = credentials["credentials"][0]["name"]
+prueba = credentials["credentials"][0]["prueba"]
+
+print(engine, name, prueba)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': engine,
+        'NAME': BASE_DIR / name,
     }
 }
 
