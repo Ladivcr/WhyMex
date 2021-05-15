@@ -24,10 +24,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
     path('', post_views.main_menu, name="inicio"),
     path('inicio/', post_views.main_menu, name="inicio"),
     path('registro/', post_views.register_problem, name='registrar_problema'),
     path('mapa/', post_views.show_map, name='mostrar_mapa'),
     path('contacto/', post_views.contact, name='contacto'),
     path('dudas/', post_views.help, name='ayuda'),
+    path('apiwm/', post_views.MyAPI, name='APIwm'),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
