@@ -93,8 +93,8 @@ prueba = credentials["credentials"][0]["prueba"]
 print(engine, name, prueba)
 DATABASES = {
     'default': {
-        'ENGINE': engine,
-        'NAME': BASE_DIR / name,
+        'ENGINE': "django.db.backends.sqlite3",
+        'NAME': BASE_DIR / "db.sqlite3",
     }
 }
 
