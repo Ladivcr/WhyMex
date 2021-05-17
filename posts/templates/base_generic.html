@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang = 'en'>
     <head>
-        <meta charset='UTF-8'
+        <meta charset='UTF-8'>
         <meta name="description" content="Cuidado del medio ambiente">
         <meta name="keywords" content=" Arboles, Ecologia, Reforestacion, Trees, Media, Social, Maps, Mexico, Latin, America">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--&#91;if lt IE 9&#93;> <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script> < !&#91;endif&#93;-->
+        
+
+        <!-- meta tags para los metadatos -->
+        <!-- Metadato para identificar al autor de la página-->
+        <meta name="author" content="Vidal Cardona">
+        <!-- Metadato para describir el contenido de la página -->
+        <meta name="description" content="Recolección de datos medioambientales para plantear soluciones">
+        <!-- Metadato para identificar el titulo de la página en caso de que se re
+        ferencie desde facebook -->
+        <meta property="og:title" content="WhyMex!">
+        <!-- Metadato para identificar el titulo de la página en caso de que se re
+        ferencie desde twitter-->
+        <meta name="twitter:title" content="WhyMex!">
+        
+
         {% block head_content %}
     
         {% endblock %}  
@@ -17,16 +33,11 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.1.1/css/ol.css" type="text/css"/>
         <link rel=”stylesheet” href=”http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css”>  
+
         <!-- My own css -->
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}" />  
 
-        <!-- ESTO ES PARA EL MAPA -->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="{% static 'map.css' %}"> -->
-        <!-- <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"> -->
-        <!-- <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
-        <!-- TERMINA MAPA-->
 
     </head>
     <body>
@@ -34,25 +45,25 @@
         <div class=”container”>
         <nav class="mb-1 navbar navbar-expand-lg navbar-light"  style="background-color: #fff;">
             <a class="navbar-brand" href="/inicio/"><strong>WhyMex!</strong></a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-                <ul class="navbar-nav mr-auto">
+            <div class="container">
+                <ul class="nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="/inicio/"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a>
+                        <a class="nav-link" href="/inicio/"><i class="fa fa-home" aria-hidden="true"></i><strong>Inicio</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/mapa/"><i class="fas fa-map-marked-alt"></i>Mapa de problemas</a>
+                        <a class="nav-link" href="/mapa/"><i class="fas fa-map-marked-alt"></i><strong>Mapa de problemas</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/registro/"><i class="fas fa-users"></i>Registrar nuevo problema</a>
+                        <a class="nav-link" href="/registro/"><i class="fas fa-users"></i><strong>Registrar nuevo problema</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/contacto/"><i class="far fa-comment-alt"></i>Contácto</a>
+                        <a class="nav-link" href="/contacto/"><i class="far fa-comment-alt"></i><strong>Contácto</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/dudas/"><i class="fas fa-map-marked-alt"></i>Ayuda</a>
+                        <a class="nav-link" href="/dudas/"><i class="fas fa-map-marked-alt"></i><strong>Ayuda</strong></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/apiwm/"><i class="fas fa-map-marked-alt"></i>API</a>
+                        <a class="nav-link" href="/apiwm/"><i class="fas fa-map-marked-alt"></i><strong>API</strong></a>
                     </li>
                 </ul>
             </div>
