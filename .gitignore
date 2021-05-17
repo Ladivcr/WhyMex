@@ -1,5 +1,7 @@
 .whymexEnv/
-WhyMex/__pycache__/
-posts/__pycache__/
 local_settings.py
 credentials.json
+../WhyMex/__pycache__/wsgi.cpython-36.pyc
+__pycache__/
+../WhyMex/__pycache__/*
+

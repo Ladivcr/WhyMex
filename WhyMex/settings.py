@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-#import json 
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,33 +69,17 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
-# Cargamos las credenciales
-#with open('credentials.json') as file: 
-    #credenciales = json.load(file)
-
-# Seleccionamos las credenciales
-
-#name = credenciales["credentials"][0]["name"]
-#user = credenciales["credentials"][0]["user"]
-#password = credenciales["credentials"][0]["password"]
 
 DATABASES = {
-         'default': {
-             'ENGINE':'django.db.backends.mysql',
-             'NAME':'WhyMex$wmproblems',
-             'USER':'WhyMex',
-             'PASSWORD':'3JJeRd7DvE9vLci',                                                                                           
-             'HOST':'WhyMex.mysql.pythonanywhere-services.com',
-             'PORT':'3306',
-         }
-     }
+        'default': {
+        'ENGINE':'django.db.backends.mysql',
+        'NAME':'WhyMex$wmproblems',
+        'USER':'WhyMex',
+        'PASSWORD':'3JJeRd7DvE9vLci',                                                                                           
+        'HOST':'WhyMex.mysql.pythonanywhere-services.com',
+        'PORT':'3306',
+        }
+    }
 
 
 # Password validation
