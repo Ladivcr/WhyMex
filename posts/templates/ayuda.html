@@ -8,75 +8,175 @@
     <div id="container">
         <div id="post">
             <center><h2><strong>¡Hola! Bienvenido a la sección de ayuda</strong></h2></center>
-            <p style=”text-align: justify;”>Antes de enviarnos tu pregunta, por favor
-                revisa las que ya están en la página.<br>
-
-            <center><h1><strong>¿Cómo puedo registrar los datos de un nuevo problema?</strong></h1></center>
+            <p style=”text-align: justify;”>Antes de enviarnos tu pregunta al correo en la sección de contácto, por favor
+                revisa las que ya están en la página. Aquí encontraras respuesta a las preguntas: <br>
             <ul>
-                <li>Ir a la sección "Registrar nuevo problema"</li>
+                <li><a href="#p1">¿Cómo puedo registrar los datos de un nuevo problema?</a></li>
+                <li><a href="#p2">¿De dónde puedo obtener las coordenadas de Latitud y Longitud?</a></li>
+                <li><a href="#p3">¿Cómo puedo registrar los datos de un nuevo problema desde el móvil (iOS)?</a></li>
+                <li><a href="#p4">¿Cómo puedo registrar los datos de un nuevo problema desde el móvil (Android)?</a></li>
+            </ul>
+            
+            <!-- PREGUNTA NUMERO 1 -->
+            <center><h1><strong><a name = "p1">¿Cómo puedo registrar los datos de un nuevo problema?</a></strong></h1></center>
+            <ul>
+                <li>Ir a la sección "Registrar nuevo problema"</li><br>
                 <center><img src="{% static 'img/registrar_problema.jpg' %}"
                     width="700"
                     height="500"
                     alt="Flecha apuntando a la sección de Registrar nuevo problema"
                     title="Flecha apuntando a la sección de Registrar nuevo problema"></center>
+                <p style="text-align: justify;">Ahí podras encontrar un menú similar al de la
+                    imagen en el cual tendrás que introducir los datos necesarios para registrar el
+                    problema. Los campos obligatorios son: Latitud, Longitud, Tipo de problema,
+                    Nivel de importancia considerado y el estado.</p>
             </ul>
-            <p style="text-align: justify;">Ahí podras encontrar un menú similar al de la
-            imagen en el cual tendrás que introducir los datos necesarios para registrar el
-            problema. Los campos obligatorios son: Latitud, Longitud, Tipo de problema,
-            Nivel de importancia considerado y el estado.</p>
-
-            <center><h1><strong>¿De dónde puedo obtener las coordenadas de Latitud y Longitud?</strong></h1></center>
+            
+            <!-- PREGUNTA NUMERO 2 -->
+            <center><h1><strong><a name="p2">¿De dónde puedo obtener las coordenadas de Latitud y Longitud?</a></strong></h1></center>
 
             <ul>
-                <li>Abrir <a href="https://www.google.com.mx/maps/">Google Maps</a> y marcar el lugar del problema</li>
+                <li>Abrir <a href="https://www.google.com.mx/maps/">Google Maps</a> y marcar el lugar del problema</li><br>
                 <center><img src="{% static 'img/marcar_punto.jpg' %}"
                     width="700"
                     height="500"
                     alt="Flecha apuntando a un punto sobre el mapa"
-                    title="Flecha apuntando a un punto sobre el mapa"></center>
+                    title="Flecha apuntando a un punto sobre el mapa"></center><br>
                 <p style="text-align: justify;">Una vez que has marcado el punto, automáticamente 
                 aparecerá en la parte inferior un recuadro con las coordenadas del punto que has marcado.
                 </p>
 
-                <li>Copiar las coordenadas</li>
+                <li>Copiar las coordenadas</li><br>
                 <center><img src="{% static 'img/obtener_coordenadas.jpg' %}"
                     width="700"
                     height="500"
                     alt="Flecha apuntando a la barra de enlace"
-                    title="Flecha apuntando a a la barra de enlace"></center>
+                    title="Flecha apuntando a a la barra de enlace"></center><br>
                 <p style="text-align: justify;">Las coordenadas ya vienen en el orden: Latitud y Longitud,
                 por lo que únicamente tienes que pegarlas en algún lugar cómodo para transcribirlas después.</p>
 
-                <li>Escrbir los datos necesarios</li>
+                <li>Escrbir los datos necesarios</li><br>
                 <center><img src="{% static 'img/datos_escritos.jpg' %}"
                     width="700"
                     height="500"
                     alt="Campos rellenados con sus respectivos datos"
-                    title="Campos rellenados con sus respectivos datos"></center>
+                    title="Campos rellenados con sus respectivos datos"></center><br>
                 <p style="text-align: justify;">Hemos escritos los campos obligatorios para este ejemplo hipotético,
                 una vez introducidos los datos del problema. Presiona en el botón que se encuentra en la parte
                 inferior izquierda para registrarlo en la base de datos.</p>
 
-                <li>Confirmación</li>
+                <li>Confirmación</li><br>
                 <center><img src="{% static 'img/mensaje_confirmacion.jpg' %}"
                     width="700"
                     height="500"
                     alt="Mensaje de confirmación sobre el registro en la base de datos"
-                    title="Mensaje de confirmación sobre el registro en la base de datos"></center>
+                    title="Mensaje de confirmación sobre el registro en la base de datos"></center><br>
                 <p style="text-align: justify;">Una vez presionado el botón para registrar el problema, podrás 
                 visualizar un mensaje de confirmación.</p>
 
-                <li>Visualizar la información</li>
+                <li>Visualizar la información</li><br>
                 <center><img src="{% static 'img/mostrar_punto.jpg' %}"
                     width="700"
                     height="500"
                     alt="Icono de árbol sobre un mapa"
-                    title="Icono de árbol sobre un mapa"></center>
+                    title="Icono de árbol sobre un mapa"></center><br>
                 <p style="text-align: justify;">Ahora, el problema aparecerá
                 en el Mapa de problemas disponible para todos.</p>
+            </ul>
+            <!-- PREGUNTA NUMERO 3 -->
+            <center><h1><strong><a name = "p3">¿Cómo puedo registrar los datos de un nuevo problema desde el móvil (iOS)?</a></strong></h1></center>
+            <ul>
+                <li>Abrir y marcar el punto de interés en la aplicación Maps</li><br>
+                <center><img src="{% static 'img/locationIOS1.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Menú con los datos del punto marcado"
+                    title="Datos del punto marcado"></center><br>
+                <p style="text-align: justify;">Si el punto de interés es tu ubicación, solo presiona sobre
+                tu ubicación y verás el mismo menú. </p>
 
+                <li>Copiar las coordenadas</li><br>
+                <center><img src="{% static 'img/locationIOS2.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Menú con los datos del punto marcado, opción de copiar"
+                    title="Datos del punto marcado"></center><br>
+                <p style="text-align: justify;">Deja presionado sobre latitud para obtener la opción 
+                de copiar (copy).</p>
+
+                <li>Pegar las coordenadas</li><br>
+                <center><img src="{% static 'img/locationIOS3.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Menú de WhyMex con los datos del punto marcado"
+                    title="Datos del punto marcado pegados en WhyMex"></center><br>
+                <p style="text-align: justify;">Deja presionado sobre el recuadro donde vas a pegar los datos  
+                para obtener la opción de pegado. Repite el procedimiento para Longitud.</p>
             </ul>
 
+            <!-- PREGUNTA NUMERO 4 -->
+            <center><h1><strong><a name = "p4">¿Cómo puedo registrar los datos de un nuevo problema desde el móvil (Android)?</a></strong></h1></center>
+            <ul>
+                <li>Abrir y marcar el punto de interés en la aplicación Maps</li><br>
+                <center><img src="{% static 'img/locationAndroid1.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Punto rojo marcado en un mapa"
+                    title="Punto rojo marcado en un mapa"></center><br>
+                <p style="text-align: justify;">Si el punto de interés es tu ubicación, solo manten presionado sobre
+                tu ubicación y se añadira el puntdo de interés. </p>
+
+                <li>Despliegue del menú con las coordenadas</li><br>
+                <center><img src="{% static 'img/locationAndroid2.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Menú con los datos del punto marcado"
+                    title="Datos del punto marcado"></center><br>
+                <p style="text-align: justify;">Desliza la pestaña que sale en la parte inferior cuando marcas un punto de interés
+                    y obtendrás el menú con los datos del punto marcado.</p>
+
+                <li>Copiar las coordenadas</li><br>
+                <center><img src="{% static 'img/locationAndroid3.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Menú con los datos del punto marcado, opción de copiar"
+                    title="Datos del punto marcado"></center><br>
+                <p style="text-align: justify;">Manten presionado sobre las coordenadas para obtener la opción de copiar (copy)</p>
+
+                <li>Pegar las coordenadas</li><br>
+                <center><img src="{% static 'img/locationAndroid4.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Coordenadas pegadas en recuadro"
+                    title="Coordenadas pegadas en recuadro"></center><br>
+                <p style="text-align: justify;">Dado el formato ofrecido por Google Maps (Latitud, Longitud)
+                no podemos pegar una a una como en iOS.</p>
+
+                <li>Pegar las coordenadas</li><br>
+                <center><img src="{% static 'img/locationAndroid5.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Opciones Cut, Copy, Paste y Replace"
+                    title="Opciones Cut, Copy, Paste y Replace"></center><br>
+                <p style="text-align: justify;">Una vez pegado el formato en un recuadro, 
+                    tendrémos que cortar (Cut) todo el número después de la coma (-101.6367229) y pegarlo 
+                    en el recuadro de Longitud.</p>
+
+                <li>Arreglar el formato de las coordenadas</li><br>
+                <center><img src="{% static 'img/locationAndroid6.jpg' %}"
+                    width="500"
+                    height="700"
+                    alt="Números de punto decimal"
+                    title="Números de punto decimal"></center><br>
+                <p style="text-align: justify;">El recuadro únicamente acepta número con punto decimal
+                por lo que nos aseguramos de que no queden en el recuadro simbolos de parentesis: "(" o ")"
+                o el signo de coma: ",".</p>
+
+
+
+
+            </ul>
+            
             <p style="text-align: justify;"><strong>Hola usuario, gracias por usar nuestra aplicación.
                 Continuamos desarrollando la aplicación para que cada vez sea más cómoda para ti.</strong></p>
 

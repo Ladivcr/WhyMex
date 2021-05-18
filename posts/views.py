@@ -129,9 +129,8 @@ def show_map(request):
         for element in P_Incendio:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_incendio)
@@ -141,9 +140,8 @@ def show_map(request):
         for element in P_Sequia:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_sequia)
@@ -153,9 +151,8 @@ def show_map(request):
         for element in P_Deforestacion:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_deforestacion)
@@ -165,9 +162,8 @@ def show_map(request):
         for element in P_Pesca_ilegal:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_pesca_ilegal)
@@ -177,9 +173,8 @@ def show_map(request):
         for element in P_Estancamiento_agua:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_estancamiento_agua)
@@ -189,9 +184,8 @@ def show_map(request):
         for element in P_Cambio_suelo:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_cambio_de_suelo)
@@ -202,9 +196,8 @@ def show_map(request):
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_vertederos_clandestinos)
@@ -215,9 +208,8 @@ def show_map(request):
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_toxicos)
@@ -228,9 +220,8 @@ def show_map(request):
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-                <p>Fecha de registro: <strong>{element.created}</strong></p>\
-                <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
-            iframe1 = branca.element.IFrame(html=html, width=256, height=128)
+                <p>Fecha de registro: <strong>{element.created}</strong></p>"
+            iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_biologicos)
