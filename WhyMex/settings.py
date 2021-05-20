@@ -68,10 +68,6 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 config = dotenv_values("/home/WhyMex/WhyMex/.env")
-#NAMEDB = configDB['NAME'] WhyMex$wmproblems
-#USERDB = configDB['USER'] WhyMex
-#PASSWORDDB = configDB['PASSWORD']3JJeRd7DvE9vLci
-#HOSTDB = configDB['HOST'] WhyMex.mysql.pythonanywhere-services.com
 
 DATABASES = {
         'default': {
