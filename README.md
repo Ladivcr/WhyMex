@@ -60,17 +60,34 @@ Dicho lo anterior, continua con los comandos en la terminal para poder abrir el 
 > Please, before to execute *pip install -r requirements.txt* read the file **ReadBeforeStart.txt**
 > There you can get more details about the commands *pip install* that we executed.
 > The reason is because, when you execute *pip install -r requirements.txt* it will install one by one, however, some packages
-> were installed without our desire. So, we recommended read the file **ReadBeforeStart.txt**. 
+> were installed without our desire. So, we recommend read the file **ReadBeforeStart.txt**. 
+
+
+Once you have cloned the project, check if the Test branch has also been downloaded along with the repository, to do this just run:  
+> git branch 
+and you should get the main branch and the Tests branch. If the latter was not downloaded along with the repository,
+I recommend you to create it or download it from here, since the Tests branch has the default configuration.
+branch has the default configuration, which you will find in the **Testing branch. You will find it in the **WhyMex/local_settings.py** file.
+
+The Tests branch is intended for you to run the tests on your computer locally, once they have been tested and are working well. 
+Then you can proceed to make a merge with the main branch to make a pull request to the project. The main branch is already 
+configured the way the server where the page is hosted requires it.
 
 
 
+Having said that, continue with the commands in the terminal to open the project locally:
 
+```
+  python3 manage.py makemigrations
+  python3 manage.py migrate
+  python3 manage.py runserver
+```
 
-# Licencia 
+# Licencia / License
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-# Autor
+# Autor / Author
 * José Vidal Cardona Rosas / ladivcr@comunidad.unam.mx
 
-# Colaboradores
-* Angel 
+# Colaboradores / Collaborators
+* Ángel Francisco Flores Ayala / angel.fa.040f@gmail.com /  github.com/AngelFA04 
