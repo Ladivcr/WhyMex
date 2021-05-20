@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+from dotenv import dotenv_values
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,16 +67,19 @@ WSGI_APPLICATION = 'WhyMex.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
+config = dotenv_values("/home/WhyMex/WhyMex/.env")
+#NAMEDB = configDB['NAME'] WhyMex$wmproblems
+#USERDB = configDB['USER'] WhyMex
+#PASSWORDDB = configDB['PASSWORD']3JJeRd7DvE9vLci
+#HOSTDB = configDB['HOST'] WhyMex.mysql.pythonanywhere-services.com
 
 DATABASES = {
         'default': {
         'ENGINE':'django.db.backends.mysql',
-        'NAME':'WhyMex$wmproblems',
-        'USER':'WhyMex',
-        'PASSWORD':'3JJeRd7DvE9vLci',                                                                                           
-        'HOST':'WhyMex.mysql.pythonanywhere-services.com',
+        'NAME': config['NAME'],
+        'USER': config['USER'],
+        'PASSWORD': config['PASSWORD'],                                                                                           
+        'HOST': config['HOST'],
         'PORT':'3306',
         }
     }

@@ -8,6 +8,7 @@ libraries were install.
 Some commands that I did before to start to work are: 
     pip install django -U 
     pip install folium
+    pip install python-dotenv
 
 NOTE: Create your own virtual enviroment 
 
