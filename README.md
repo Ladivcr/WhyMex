@@ -16,8 +16,8 @@ Indice
 # Modo de uso
 
 ```
-  python3 -m venv .env
-  source .wyENV/bin/activate
+  python3 -m venv .whymexEnv
+  source .whymexEnv/bin/activate
   pip install -r requirements.txt
 ```
 > Por favor, antes de de ejecutar *pip install -r requirements.txt* lee el archivo **ReadBeforeStart.txt**
@@ -52,8 +52,8 @@ Dicho lo anterior, continua con los comandos en la terminal para poder abrir el 
 ```
 # Usage mode
 ```
-  python3 -m venv .env
-  source .wyENV/bin/activate
+  python3 -m venv .whymexEnv
+  source .whymexEnv/bin/activate
   pip install -r requirements.txt
 ```
 
