@@ -19,17 +19,17 @@
             <form method="POST" action = "{% url 'registrar_problema' %}" class="row g-3">
                 {% csrf_token %}
                 <div class="col-md-6">
-                    <label for="inputLatitud" class="form-label">*Latitud</label>
+                    <label for="inputLatitud" class="form-label"><a style="color: red;">*</a>Latitud</label>
                     <input type="number" step="0.000001" class="form-control" id="myLatitud"
                     placeholder="Latitud" name="latitud" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputLongitud" class="form-label">*Longitud</label>
+                    <label for="inputLongitud" class="form-label"><a style="color: red;">*</a>Longitud</label>
                     <input type="number" step="0.000001" class="form-control" id="myLongitud"
                     placeholder="Longitud" name="longitud" required>
                 </div>
                 <div class="col-12">
-                    <label for="inputProblema" class="form-label">*Tipo de problema</label>
+                    <label for="inputProblema" class="form-label"><a style="color: red;">*</a>Tipo de problema</label>
                     <select id="myProblema" class="form-select" name="problema" required>
                         <!-- En la base de datos esto será almacenado como varchar -->
                         <option disabled="" selected="">Seleccionar problema</option>
@@ -47,7 +47,7 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="inputImportancia" class="form-label">*Nivel de prioridad</label>
+                    <label for="inputImportancia" class="form-label"><a style="color: red;">*</a>Nivel de prioridad</label>
                     <select id="myImportancia" class="form-select" name="prioridad" required>
                         <option disabled="" selected="">Seleccionar nivel de prioridad</option>
                         <option value="Extremadamente_alta">Extremadamente Alta</option>
@@ -64,7 +64,7 @@
                     title="Si el nombre excede los 50 carácteres, introduce el nombre por el que se conoce localmente la ciudad">
                     </div>
                 <div class="col-md-4">
-                    <label for="inputEstado" class="form-label">*Estado</label>
+                    <label for="inputEstado" class="form-label"><a style="color: red;">*</a>Estado</label>
                     <select id="myEstado" class="form-select" name="estado" required>
                         <option disabled="" selected="">Seleccionar estado</option>
                         <option value="MEX">Mexico</option>
