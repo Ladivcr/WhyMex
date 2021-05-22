@@ -1,7 +1,16 @@
 # WhyMex
-Un proyecto para la recolección de datos sobre los lugares con problemas medioambientales. 
+Un proyecto para la recolección de datos sobre los lugares con problemas medioambientales en México. 
+Cuyo **objetivo** principal es recolectar datos para hacer propuestas de soluciones basadas en datos a estos problemas. 
 
-Indice
+[Ver página del proyecto](http://whymex.pythonanywhere.com/inicio/)
+
+**NOTA**
+> Actualmente el proyecto se encuentra alojado en pythonanywhere el cual solo nos permite almacenar 5 MB en la 
+> base de datos proporcionada, por lo que se estará revisando periódicamente para no pasar este limite y cuando este por 
+> alcanzarse, los datos serán descargados de la base de datos para ser respaldados aquí. Una vez respaldados aquí, se eliminaran 
+> de la base de datos para dar paso a los nuevos datos. Esto mientras se encuentra un mejor hosting. 
+
+# **Indice**
 <ul>
   <li><a href="#spanish">Información sobre el proyecto en español</a></li>
   <li><a href="#english">Información sobre el proyecto en inglés</a></li>
@@ -9,11 +18,11 @@ Indice
  
 <center><h1><strong><a name = "spanish">Información en español</a></strong></h1></center>
 
-# Dependencias 
+## Dependencias 
 ``` 
   Python3 Django
 ```
-# Modo de uso
+## Modo de uso
 
 ```
   python3 -m venv .whymexEnv
@@ -46,11 +55,11 @@ Dicho lo anterior, continua con los comandos en la terminal para poder abrir el 
  
 <center><h1><strong><a name = "english">Information in English</a></strong></h1></center>
 
-# Dependencies
+## Dependencies
 ``` 
   Python3 Django
 ```
-# Usage mode
+## Usage mode
 ```
   python3 -m venv .whymexEnv
   source .whymexEnv/bin/activate
