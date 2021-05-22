@@ -14,6 +14,8 @@ Cuyo **objetivo** principal es recolectar datos para hacer propuestas de solucio
 <ul>
   <li><a href="#spanish">Información sobre el proyecto en español</a></li>
   <li><a href="#english">Información sobre el proyecto en inglés</a></li>
+  <li><a href="#licen">Licencia del proyecto</a></li>
+  <li><a href="#aut">Autores y colaboradores</a></li>
 </ul>
  
 <center><h1><strong><a name = "spanish">Información en español</a></strong></h1></center>
@@ -92,11 +94,17 @@ Having said that, continue with the commands in the terminal to open the project
   python3 manage.py runserver
 ```
 
-# Licencia / License
+
+<center><h1><strong><a name = "licen">Licencia del proyecto </a></strong></h1></center>
+
+### Licencia / License
+
 [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
 
-# Autor / Author
+<center><h1><strong><a name = "aut">Autores y Colaboradores</a></strong></h1></center>
+
+### Autores / Authors
 * José Vidal Cardona Rosas / ladivcr@comunidad.unam.mx
 
-# Colaboradores / Collaborators
+### Colaboradores / Collaborators
 * Ángel Francisco Flores Ayala / angel.fa.040f@gmail.com /  github.com/AngelFA04 
