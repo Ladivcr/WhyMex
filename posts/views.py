@@ -124,8 +124,12 @@ def show_map(request):
     
     # P_Sequia[0].atribu # Obtener atributos
     # ! EXPLORAMOS LOS OBJETOS
-    # * INCENDIO 
-    if len(P_Incendio) > 0:
+    # * INCENDIO
+    #print(P_Desechos_biologicos)
+    #if P_Desechos_biologicos:
+    #    print(P_Desechos_biologicos)
+    
+    if P_Incendio:
         for element in P_Incendio:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -137,7 +141,7 @@ def show_map(request):
             the_element.add_to(grp_incendio)
 
     # * SEQUIA 
-    if len(P_Sequia) > 0:
+    if P_Sequia:
         for element in P_Sequia:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -149,7 +153,7 @@ def show_map(request):
             the_element.add_to(grp_sequia)
 
     # * DEFORESTACION 
-    if len(P_Deforestacion) > 0:
+    if P_Deforestacion:
         for element in P_Deforestacion:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -161,7 +165,7 @@ def show_map(request):
             the_element.add_to(grp_deforestacion)
 
     # * PESCA ILEGAL
-    if len(P_Pesca_ilegal) > 0:
+    if P_Pesca_ilegal:
         for element in P_Pesca_ilegal:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -173,7 +177,7 @@ def show_map(request):
             the_element.add_to(grp_pesca_ilegal)
 
     # * ESTANCAMIENTO DE AGUA
-    if len(P_Estancamiento_agua) > 0:
+    if P_Estancamiento_agua:
         for element in P_Estancamiento_agua:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -186,7 +190,7 @@ def show_map(request):
             the_element.add_to(grp_estancamiento_agua)
 
     # * CAMBIO DE USO DE SUELO
-    if len(P_Cambio_suelo) > 0:
+    if P_Cambio_suelo:
         for element in P_Cambio_suelo:  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
                 <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
@@ -199,7 +203,7 @@ def show_map(request):
             the_element.add_to(grp_cambio_de_suelo)
     
     # * VERTEDEROS CLANDESTINOS
-    if len(P_Vertederos_clandestinos) > 0:
+    if P_Vertederos_clandestinos:
         for element in P_Vertederos_clandestinos:
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
@@ -213,7 +217,7 @@ def show_map(request):
             the_element.add_to(grp_vertederos_clandestinos)
 
     # * DESECHOS TOXICOS
-    if len(P_Desechos_toxicos) > 0:
+    if P_Desechos_toxicos:
         for element in P_Desechos_toxicos:
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
@@ -227,7 +231,7 @@ def show_map(request):
             the_element.add_to(grp_desechos_toxicos)
 
     # * DESECHOS BIOLOGICOS
-    if len(P_Desechos_biologicos) > 0:
+    if P_Desechos_biologicos:
         for element in P_Desechos_biologicos:
             #print(element.estado)  
             html = f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
