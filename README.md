@@ -104,7 +104,7 @@ Having said that, continue with the commands in the terminal to open the project
 <center><h1><strong><a name = "aut">Autores y Colaboradores</a></strong></h1></center>
 
 ### Autores / Authors
-* José Vidal Cardona Rosas / ladivcr@comunidad.unam.mx
+* José Vidal Cardona Rosas / ladivcr@comunidad.unam.mx / [Github](https://github.com/Ladivcr/)
 
 ### Colaboradores / Collaborators
-* Ángel Francisco Flores Ayala / angel.fa.040f@gmail.com /  github.com/AngelFA04 
+* Brian Kalid Garcia Olivo / briankalid2000@gmail.com / [Github](https://github.com/briankalid/)
