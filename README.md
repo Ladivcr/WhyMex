@@ -108,4 +108,3 @@ Having said that, continue with the commands in the terminal to open the project
 
 ### Colaboradores / Collaborators
 * Brian Kalid Garcia Olivo / briankalid2000@gmail.com / [Github](https://github.com/briankalid/)
-* Ángel Francisco Flores Ayala / angel.fa.040f@gmail.com /  [Github](https://github.com/AngelFA04/) 
