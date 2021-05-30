@@ -72,10 +72,10 @@ def register_problem(request):
 
 def create_html_element(element):
     return f"<p>Problema: <strong>{element.tipo_problema}</strong></p>\
-           <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
-           <p>Fecha de registro: <strong>{element.created}</strong></p>\
-           <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
- 
+    <p>Nivel de prioridad: <strong>{element.nivel_prioridad}</strong></p>\
+    <p>Fecha de registro: <strong>{element.created}</strong></p>\
+    <p>Información extra: <strong>{element.informacion_extra}</strong></p>"
+
 
 # ! Página para ver los problemas en un mapa
 def show_map(request):
@@ -88,6 +88,8 @@ def show_map(request):
     # * where the map start: Mexico
     maping = folium.Map(location=(22.9998589, -100.9994856), zoom_start=5)
 
+    tooltip = "Click me!"
+
     # * Creamos grupos para los marcadores
     grp_incendio = folium.FeatureGroup(name='Incendio')
     grp_sequia = folium.FeatureGroup(name="Sequia")
@@ -98,26 +100,13 @@ def show_map(request):
     grp_vertederos_clandestinos = folium.FeatureGroup(name="Vertederos clandestinos")
     grp_desechos_toxicos = folium.FeatureGroup(name="Desechos tóxicos tirados clandestinamente")
     grp_desechos_biologicos = folium.FeatureGroup(name="Desechos biológicos tirados clandestinamente")
+    grp_otros = folium.FeatureGroup(name="Otros")
     
     # * Añadir puntos al mapa
     #marcador1.add_to(maping)
     # * creamos el marcador
     #fire = folium.Marker(location=(19.702860, -101.190091), icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa')) #! Morelia
-    #sequia = folium.Marker(location=(19.513755, -101.708338), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa')) #! Pátzcuaro
-    #deforestacion = folium.Marker(location=(19.513755, -107.608338), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa')) #! Pátzcuaro
-    #pesca = folium.Marker(location=(19.513755, -103.608338), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa')) #! Pátzcuaro
-    #estancamiento = folium.Marker(location=(19.513755, -106.608338), icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa')) #! Pátzcuaro
-    #cambioSuelo = folium.Marker(location=(19.513755, -104.608338), icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa')) #! Pátzcuaro
-    #vertedero = folium.Marker(location=(19.513755, -111.608338), icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa')) #! Pátzcuaro
-    #toxico = folium.Marker(location=(19.513755, -108.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa')) #! Pátzcuaro
-    #biologico = folium.Marker(location=(19.513755, -105.608338), icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa')) #! Pátzcuaro
 
-    # * Hacemos un frame para el marcador
-    #html = "<p>Problema: <strong>Deforestación</strong></p><p>Nivel de prioridad: <strong>Extremadamente alto</strong></p>"
-    #iframe1 = branca.element.IFrame(html=html, width=256, height=128)
-    #ejemplo = folium.Marker(location=(20.707637, -103.391825), popup=folium.Popup(iframe1, max_width=500), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
-    
-    
     ############ ! Creamos los objetos a partir de la filtración en la BD
     P_Incendio = NewProblem.objects.filter(tipo_problema='Incendio')
     P_Sequia = NewProblem.objects.filter(tipo_problema='Sequia')
@@ -128,69 +117,137 @@ def show_map(request):
     P_Vertederos_clandestinos = NewProblem.objects.filter(tipo_problema='Vertedero_clandestino')
     P_Desechos_toxicos = NewProblem.objects.filter(tipo_problema='Desechos_toxicos')
     P_Desechos_biologicos = NewProblem.objects.filter(tipo_problema='Desechos_biologicos')
-
+    P_Otros = NewProblem.objects.filter(tipo_problema='Otro')
     
     # P_Sequia[0].atribu # Obtener atributos
     # ! EXPLORAMOS LOS OBJETOS
     # * INCENDIO
-    #print(P_Desechos_biologicos)
-    #if P_Desechos_biologicos:
-    #    print(P_Desechos_biologicos)
-    
+
     if P_Incendio:
         for element in P_Incendio:  
             html = create_html_element(element) 
             iframe1 = branca.element.IFrame(html=html, width=220, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa'))
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa'), tooltip=tooltip)
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_incendio)
+        
+            # Circulo de margen de error
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="darkred",
+                fill=True,
+                fill_color="darkred",
+                ).add_to(grp_incendio)
 
     # * SEQUIA 
     if P_Sequia:
         for element in P_Sequia:  
             html = create_html_element(element)
             iframe1 = branca.element.IFrame(html=html, width=220, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'))
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'), tooltip=tooltip)
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_sequia)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="darkblue",
+                fill=True,
+                fill_color="darkblue",
+                ).add_to(grp_sequia)
 
     # * DEFORESTACION 
     if P_Deforestacion:
         for element in P_Deforestacion:  
             html = create_html_element(element)
             iframe1 = branca.element.IFrame(html=html, width=225, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="green", icon_color="#000", icon='fa-tree', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_deforestacion)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="green",
+                fill=True,
+                fill_color="green",
+                ).add_to(grp_deforestacion)
 
     # * PESCA ILEGAL
     if P_Pesca_ilegal:
         for element in P_Pesca_ilegal:  
             html = create_html_element(element) 
             iframe1 = branca.element.IFrame(html=html, width=225, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa'))
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa'), tooltip=tooltip)
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_pesca_ilegal)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="darkblue",
+                fill=True,
+                fill_color="darkblue",
+                ).add_to(grp_pesca_ilegal)
 
     # * ESTANCAMIENTO DE AGUA
     if P_Estancamiento_agua:
         for element in P_Estancamiento_agua:  
             html = create_html_element(element)
             iframe1 = branca.element.IFrame(html=html, width=235, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa'))
+
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa'), tooltip=tooltip)
+
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_estancamiento_agua)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="blue",
+                fill=True,
+                fill_color="blue",
+                ).add_to(grp_estancamiento_agua)
 
     # * CAMBIO DE USO DE SUELO
     if P_Cambio_suelo:
         for element in P_Cambio_suelo:  
             html = create_html_element(element)
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa'))
+
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa'), tooltip=tooltip)
+
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_cambio_de_suelo)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="white",
+                fill=True,
+                fill_color="white",
+                ).add_to(grp_cambio_de_suelo)
     
     # * VERTEDEROS CLANDESTINOS
     if P_Vertederos_clandestinos:
@@ -198,10 +255,23 @@ def show_map(request):
             #print(element.estado)  
             html = create_html_element(element)
             iframe1 = branca.element.IFrame(html=html, width=235, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa'))
+
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa'), tooltip=tooltip)
+
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_vertederos_clandestinos)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="gray",
+                fill=True,
+                fill_color="gray",
+                ).add_to(grp_vertederos_clandestinos)
 
     # * DESECHOS TOXICOS
     if P_Desechos_toxicos:
@@ -209,10 +279,23 @@ def show_map(request):
             #print(element.estado)  
             html = create_html_element(element)   
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa'))
+
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa'), tooltip=tooltip)
+
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_toxicos)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="red",
+                fill=True,
+                fill_color="red",
+                ).add_to(grp_desechos_toxicos)
 
     # * DESECHOS BIOLOGICOS
     if P_Desechos_biologicos:
@@ -220,10 +303,44 @@ def show_map(request):
             #print(element.estado)  
             html = create_html_element(element)      
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
-            the_element = folium.Marker(location=(element.latitud, element.longitud), popup=folium.Popup(iframe1, max_width=400), icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa'))
-            
+
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa'), tooltip=tooltip)
+
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_biologicos)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="red",
+                fill=True,
+                fill_color="red",
+                ).add_to(grp_desechos_biologicos)
+
+    # * Otros
+    if P_Otros:
+        for element in P_Otros:
+            #print(element.estado)  
+            html = create_html_element(element)      
+            iframe1 = branca.element.IFrame(html=html, width=230, height=200)
+            the_element = folium.Marker(location=(element.latitud, element.longitud),
+            popup=folium.Popup(iframe1, max_width=400),
+            icon=folium.Icon(color="white",icon_color='#000', icon='fa-bookmark-o', prefix='fa'), tooltip=tooltip)
+            
+            # Añadimos el elemento a su grupo correspondiente
+            the_element.add_to(grp_otros)
+
+            folium.CircleMarker(
+                location=[element.latitud, element.longitud], 
+                radius=40, 
+                popup=folium.Popup("La ubicación puede variar", max_width=100),
+                color="white",
+                fill=True,
+                fill_color="gray",
+                ).add_to(grp_otros)
     
     ############ !
     
@@ -241,6 +358,7 @@ def show_map(request):
     grp_vertederos_clandestinos.add_to(maping)
     grp_desechos_toxicos.add_to(maping)
     grp_desechos_biologicos.add_to(maping)
+    grp_otros.add_to(maping)
     # Y añadimos, además, el control de capas
     folium.LayerControl().add_to(maping)
 

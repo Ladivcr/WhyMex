@@ -4,4 +4,4 @@ local_settings.py
 ../WhyMex/__pycache__/wsgi.cpython-36.pyc
 __pycache__/
 ../WhyMex/__pycache__/*
-
+db.sqlite3
