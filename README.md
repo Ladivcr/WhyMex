@@ -13,7 +13,7 @@ profundizar en dichos problemas y pensar en soluciones a estos problemas aprovec
 
 # **Indice**
 <ul>
-  <li><a href="preguntas">Preguntas relevantes</a></li>
+  <li><a href="#preguntas">Preguntas relevantes</a></li>
   <li><a href="#spanish">Información sobre el proyecto en español</a></li>
   <li><a href="#english">Información sobre el proyecto en inglés</a></li>
   <li><a href="#licen">Licencia del proyecto</a></li>
