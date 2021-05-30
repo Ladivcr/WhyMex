@@ -146,13 +146,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_sequia)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="darkblue",
-                fill=True,
-                fill_color="darkblue",
-                ).add_to(grp_sequia)
 
     # * DEFORESTACION 
     if P_Deforestacion:
@@ -165,13 +158,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_deforestacion)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="green",
-                fill=True,
-                fill_color="green",
-                ).add_to(grp_deforestacion)
 
     # * PESCA ILEGAL
     if P_Pesca_ilegal:
@@ -184,13 +170,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_pesca_ilegal)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="darkblue",
-                fill=True,
-                fill_color="darkblue",
-                ).add_to(grp_pesca_ilegal)
 
     # * ESTANCAMIENTO DE AGUA
     if P_Estancamiento_agua:
@@ -206,13 +185,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_estancamiento_agua)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="blue",
-                fill=True,
-                fill_color="blue",
-                ).add_to(grp_estancamiento_agua)
 
     # * CAMBIO DE USO DE SUELO
     if P_Cambio_suelo:
@@ -228,13 +200,7 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_cambio_de_suelo)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="white",
-                fill=True,
-                fill_color="white",
-                ).add_to(grp_cambio_de_suelo)
+            
     
     # * VERTEDEROS CLANDESTINOS
     if P_Vertederos_clandestinos:
@@ -251,13 +217,7 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_vertederos_clandestinos)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="gray",
-                fill=True,
-                fill_color="gray",
-                ).add_to(grp_vertederos_clandestinos)
+            
 
     # * DESECHOS TOXICOS
     if P_Desechos_toxicos:
@@ -274,13 +234,7 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_toxicos)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="red",
-                fill=True,
-                fill_color="red",
-                ).add_to(grp_desechos_toxicos)
+            
 
     # * DESECHOS BIOLOGICOS
     if P_Desechos_biologicos:
@@ -298,13 +252,7 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_biologicos)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="red",
-                fill=True,
-                fill_color="red",
-                ).add_to(grp_desechos_biologicos)
+            
 
     # * Otros
     if P_Otros:
@@ -319,13 +267,7 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_otros)
 
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                color="white",
-                fill=True,
-                fill_color="gray",
-                ).add_to(grp_otros)
+            
     
     ############ !
     
