@@ -1,6 +1,7 @@
 # WhyMex
-Un proyecto para la recolección de datos sobre los lugares con problemas medioambientales en México. 
-Cuyo **objetivo** principal es recolectar datos para hacer propuestas de soluciones basadas en datos a estos problemas. 
+Un proyecto para la recolección de datos sobre lá ubicación de problemas medioambientales en México. 
+Cuyo **objetivo** principal es recolectar datos para saber de la existencia de los problemas y a partir de ahí
+profundizar en dichos problemas y pensar en soluciones a estos problemas aprovechando los datos disponibles. 
 
 [Ver página del proyecto](http://whymex.pythonanywhere.com/inicio/)
 
@@ -12,11 +13,28 @@ Cuyo **objetivo** principal es recolectar datos para hacer propuestas de solucio
 
 # **Indice**
 <ul>
+  <li><a href="relevantq">Preguntas relevantes</a></li>
   <li><a href="#spanish">Información sobre el proyecto en español</a></li>
   <li><a href="#english">Información sobre el proyecto en inglés</a></li>
   <li><a href="#licen">Licencia del proyecto</a></li>
   <li><a href="#aut">Autores y colaboradores</a></li>
 </ul>
+
+<center><h1><strong><a name = "relevantq">Preguntas relevantes</a></strong></h1></center>
+
+## ¿Qué es?
+
+> Un sistema de recolección de datos no automatizado de la ubicación de problemas detectados por los mismos mexicanos.
+
+## ¿Para quién es?
+
+> El sistema es de código abierto, por lo que puede ser usado por cualquier persona o entidad. Yo inicié el proyecto con la finalidad de darle “voz” a todos los mexicanos. Hay problemas locales que parecen poco relevantes pero es justo en el inicio del problema donde se debería de solucionarlo antes de que sea mayor y más difícil de solucionar. 
+
+## ¿Cuál es la idea detrás? 
+
+> En un inicio yo quise plantear una solución a un problema sobre basura en la ciudad donde vivo. Dicho problema yo logre verlo porque suelo salir a correr y a veces hago nueva ruta y fue así como lo encontré entonces en lugar de encontrar una solución a ese problema se me ocurrió construir un sistema para que todas las personas puedan ubicar problemas de su localidad y a partir de ello, poder pasar a la parte de pensar en soluciones. 
+
+ 
  
 <center><h1><strong><a name = "spanish">Información en español</a></strong></h1></center>
 
