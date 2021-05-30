@@ -134,7 +134,6 @@ def show_map(request):
             the_element.add_to(grp_incendio)
         
             
-
     # * SEQUIA 
     if P_Sequia:
         for element in P_Sequia:  
@@ -145,7 +144,6 @@ def show_map(request):
             icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_sequia)
-
 
     # * DEFORESTACION 
     if P_Deforestacion:
@@ -200,7 +198,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_cambio_de_suelo)
 
-            
     
     # * VERTEDEROS CLANDESTINOS
     if P_Vertederos_clandestinos:
@@ -218,7 +215,6 @@ def show_map(request):
             the_element.add_to(grp_vertederos_clandestinos)
 
             
-
     # * DESECHOS TOXICOS
     if P_Desechos_toxicos:
         for element in P_Desechos_toxicos:
@@ -253,7 +249,6 @@ def show_map(request):
             the_element.add_to(grp_desechos_biologicos)
 
             
-
     # * Otros
     if P_Otros:
         for element in P_Otros:
@@ -267,8 +262,6 @@ def show_map(request):
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_otros)
 
-            
-    
     ############ !
     
 
