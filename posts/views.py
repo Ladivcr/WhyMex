@@ -111,7 +111,7 @@ def show_map(request):
     # * where the map start: Mexico
     maping = folium.Map(location=(22.9998589, -100.9994856), zoom_start=5)
 
-    tooltip = "Click me!"
+    
 
     # * Creamos grupos para los marcadores
     grp_incendio = folium.FeatureGroup(name='Incendio')
@@ -151,19 +151,11 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=220, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="darkred", icon_color="#000", icon='fire-extinguisher', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_incendio)
         
-            # Circulo de margen de error
-            folium.CircleMarker(
-                location=[element.latitud, element.longitud], 
-                radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
-                color="darkred",
-                fill=True,
-                fill_color="darkred",
-                ).add_to(grp_incendio)
+            
 
     # * SEQUIA 
     if P_Sequia:
@@ -172,14 +164,13 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=220, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-tint', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_sequia)
 
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="darkblue",
                 fill=True,
                 fill_color="darkblue",
@@ -199,7 +190,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="green",
                 fill=True,
                 fill_color="green",
@@ -212,14 +202,13 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=225, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="darkblue", icon_color="#000", icon='fa-anchor', prefix='fa'))
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_pesca_ilegal)
 
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="darkblue",
                 fill=True,
                 fill_color="darkblue",
@@ -232,7 +221,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=235, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="blue", icon_color="#000", icon='fa-chain-broken', prefix='fa'))
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_estancamiento_agua)
@@ -240,7 +229,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="blue",
                 fill=True,
                 fill_color="blue",
@@ -253,7 +241,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="white",icon_color='#000', icon='fa-refresh', prefix='fa'))
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_cambio_de_suelo)
@@ -261,7 +249,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="white",
                 fill=True,
                 fill_color="white",
@@ -275,7 +262,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=235, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="gray", icon_color="#000", icon='fa-trash', prefix='fa'))
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_vertederos_clandestinos)
@@ -283,7 +270,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="gray",
                 fill=True,
                 fill_color="gray",
@@ -297,7 +283,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="red", icon_color="#000", icon='fa-flask', prefix='fa'))
 
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_toxicos)
@@ -305,7 +291,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="red",
                 fill=True,
                 fill_color="red",
@@ -319,7 +304,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="red", icon_color="#000", icon='fa-warning', prefix='fa'))
             
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_desechos_biologicos)
@@ -327,7 +312,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="red",
                 fill=True,
                 fill_color="red",
@@ -341,7 +325,7 @@ def show_map(request):
             iframe1 = branca.element.IFrame(html=html, width=230, height=200)
             the_element = folium.Marker(location=(element.latitud, element.longitud),
             popup=folium.Popup(iframe1, max_width=400),
-            icon=folium.Icon(color="white",icon_color='#000', icon='fa-bookmark-o', prefix='fa'), tooltip=tooltip)
+            icon=folium.Icon(color="white",icon_color='#000', icon='fa-bookmark-o', prefix='fa'))
             
             # Añadimos el elemento a su grupo correspondiente
             the_element.add_to(grp_otros)
@@ -349,7 +333,6 @@ def show_map(request):
             folium.CircleMarker(
                 location=[element.latitud, element.longitud], 
                 radius=40, 
-                popup=folium.Popup("La ubicación puede variar", max_width=100),
                 color="white",
                 fill=True,
                 fill_color="gray",
