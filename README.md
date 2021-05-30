@@ -13,14 +13,14 @@ profundizar en dichos problemas y pensar en soluciones a estos problemas aprovec
 
 # **Indice**
 <ul>
-  <li><a href="relevantq">Preguntas relevantes</a></li>
+  <li><a href="preguntas">Preguntas relevantes</a></li>
   <li><a href="#spanish">Información sobre el proyecto en español</a></li>
   <li><a href="#english">Información sobre el proyecto en inglés</a></li>
   <li><a href="#licen">Licencia del proyecto</a></li>
   <li><a href="#aut">Autores y colaboradores</a></li>
 </ul>
 
-<center><h1><strong><a name = "relevantq">Preguntas relevantes</a></strong></h1></center>
+<center><h1><strong><a name = "preguntas">Preguntas relevantes</a></strong></h1></center>
 
 ## ¿Qué es?
 
@@ -33,6 +33,10 @@ profundizar en dichos problemas y pensar en soluciones a estos problemas aprovec
 ## ¿Cuál es la idea detrás? 
 
 > En un inicio yo quise plantear una solución a un problema sobre basura en la ciudad donde vivo. Dicho problema yo logre verlo porque suelo salir a correr y a veces hago nueva ruta y fue así como lo encontré entonces en lugar de encontrar una solución a ese problema se me ocurrió construir un sistema para que todas las personas puedan ubicar problemas de su localidad y a partir de ello, poder pasar a la parte de pensar en soluciones. 
+
+## ¿Cómo planeas escalar el proyecto?
+ 
+> Voy a acudir con organizaciones dedicadas al medio ambiente con la finalidad de obtener más datos para la base de datos del proyecto y/o trabajar en dicha institución y subir dicho sistema a sus servidores. 
 
  
  
