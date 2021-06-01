@@ -282,8 +282,17 @@ def show_map(request):
     # Y añadimos, además, el control de capas
     folium.LayerControl().add_to(maping)
 
-    maping=maping._repr_html_() # * updated, with this I can see the map
-    context = {'my_map': maping}
+    m=maping._repr_html_()# * updated, with this I can see the map
+    #print(maping[305:])
+    m=m[:95]+m[180:]
+    print('debugger',m[37:55])
+   # m = m[:90] + '70' + m[92:]
+    #print(m)
+    #m[37:55]=" "
+    m = m[:37]+m[55:]
+    print(m[141:176])
+    m=m[:141]+'width:90%;height:90%;left:5%;top:5%'+m[176:]
+    context = {'my_map': m}
     return render(request, 'mapa.html', context)
 
 # ! Página para contactar con el proyecto
